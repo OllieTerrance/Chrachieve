@@ -1,15 +1,28 @@
 $(document).ready(function() {
+    $("h1").text(chrome.runtime.getManifest().name);
     chrome.storage.local.get(function(store) {
-        var count = 0, total = 0;
+        var unlocked = 0, total = 0;
         $.each(achievements, function(id, ach) {
-            var done = ach.count(store.stats) >= (ach.max ? ach.max : 1);
-            $("#achievements").append($("<div/>").append($("<h3/>").text(ach.name))
-                                                 .append($("<p/>").text(ach.desc))
-                                                 .toggleClass("achieved", done));
+            var count = ach.count(store.stats);
+            var prop = Math.min(count / (ach.max ? ach.max : 1), 1);
+            var block = $("<div/>");
+            if (ach.max) {
+                var text = Math.min(count, ach.max) + " / " + ach.max + " (" + Math.round(prop * 100) + "%)";
+                block.append($("<span>").text(text));
+            }
+            block.append($("<h3/>").text(ach.name))
+                .append($("<p/>").text(ach.desc))
+                .toggleClass("achieved", prop >= 1);
+            if (ach.max) {
+                var prog = $("<div>").addClass("progress");
+                prog.append($("<div/>").css("width", "calc(" + (prop * 100) + "% - 16px)"));
+                block.append(prog);
+            }
+            $("#achievements").append(block);
             total++;
-            if (done) count++;
+            if (prop >= 1) unlocked++;
         });
-        $("#count").text(count + " of " + total + " achieved");
+        $("#count").text(unlocked + " of " + total + " (" + Math.round((unlocked / total) * 100) + "%)");
         $("#tabs li").click(function(e) {
             $("#tabs li").removeClass("select");
             $(this).addClass("select");

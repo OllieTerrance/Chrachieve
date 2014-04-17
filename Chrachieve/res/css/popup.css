@@ -71,25 +71,44 @@ button:hover {
 }
 #achievements div {
     border: 1px solid #8CD8EA;
-    padding: 5px;
+    padding: 5px 8px;
     color: #8CD8EA;
 }
-#achievements div h3, #achievements div p {
-    margin: 0;
+#achievements div span {
+    float: right;
+    margin-top: 3px;
+    font-size: 0.8em;
 }
 #achievements div h3 {
+    margin: 0;
     font-family: sans-serif;
 }
 #achievements div p {
+    margin: 0 0 2px;
     font-family: serif;
+}
+#achievements div div.progress {
+    margin: 5px 0;
+    padding: 0;
+    height: 10px;
+    border: 1px solid #8CD8EA;
+}
+#achievements div div.progress div {
+    background-color: #8CD8EA;
+    border: 0;
 }
 #achievements div + div {
     margin-top: 10px;
 }
 #achievements div.achieved {
     border: 1px solid #71D375;
-    padding: 5px;
     color: #71D375;
+}
+#achievements div.achieved div.progress {
+    border-color: #71D375;
+}
+#achievements div.achieved div.progress div {
+    background-color: #71D375;
 }
 #stats, #reset {
     display: none;

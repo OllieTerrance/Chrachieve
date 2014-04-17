@@ -120,7 +120,7 @@ var achievements = {
     },
     tabs_navigated_1000000: {
         name: "Web circumnavigator",
-        desc: "Load 1,000,000 page.",
+        desc: "Load 1,000,000 pages.",
         count: function(stats) {
             return stats.tabs.navigated;
         },
