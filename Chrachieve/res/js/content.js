@@ -128,6 +128,7 @@ var achievements = {
     }
 };
 var defaults = {
+    achievements: {},
     stats: {
         tabs: {
             opened: 0,
@@ -136,3 +137,6 @@ var defaults = {
         }
     }
 };
+$.each(achievements, function(id, ach) {
+    defaults.achievements[id] = false;
+});
