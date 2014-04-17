@@ -15,6 +15,7 @@
     "background": {
         "scripts": [
             "lib/js/jquery.min.js",
+            "res/js/content.js",
             "res/js/background.js"
         ]
     },

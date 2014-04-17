@@ -3,12 +3,25 @@ html {
 }
 body {
     margin: 0;
+    color: #25ABD9;
+    font-family: serif;
+    -webkit-user-select: none;
+}
+button {
+    padding: 5px 8px;
+    background-color: #25ABD9;
+    border: 0;
+    color: white;
+    font-family: sans-serif;
+}
+button:hover {
+    background-color: #8CD8EA;
+    cursor: pointer;
 }
 #head {
     height: 60px;
     padding: 8px 4px 0;
     background-color: white;
-    color: #25ABD9;
 }
 #head #count {
     float: right;
@@ -78,12 +91,13 @@ body {
     padding: 5px;
     color: #71D375;
 }
-#stats {
+#stats, #reset {
     display: none;
+}
+#stats {
     margin: 0;
     padding-left: 0;
     list-style: none;
-    color: #25ABD9;
 }
 #stats li {
     padding-left: 1em;
@@ -92,4 +106,12 @@ body {
 #stats li:before {
     content: "\25CB";
     padding-right: 5px;
+}
+#reset p {
+    margin: 0 0 5px;
+    text-align: center;
+}
+#reset button {
+    display: block;
+    margin: 10px auto 5px;
 }
