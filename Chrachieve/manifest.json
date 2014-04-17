@@ -1,0 +1,31 @@
+{
+    "name": "Chrachieve",
+    "short_name": "Chrachieve",
+    "description": "Achievements and statistics for your browser usage.",
+    "version": "1.0",
+    "author": "Ollie Terrance",
+    "offline_enabled": true,
+    "browser_action": {
+        "default_icon": {
+            "19": "res/img/logo-19.png",
+            "38": "res/img/logo-38.png"
+        },
+        "default_popup": "res/html/popup.html"
+    },
+    "background": {
+        "scripts": [
+            "lib/js/jquery.min.js",
+            "res/js/background.js"
+        ]
+    },
+    "permissions": [
+        "notifications",
+        "storage"
+    ],
+    "icons": {
+        "16": "res/img/logo-16.png",
+        "48": "res/img/logo-48.png",
+        "128": "res/img/logo-128.png"
+    },
+    "manifest_version": 2
+}

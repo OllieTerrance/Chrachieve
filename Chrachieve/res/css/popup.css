@@ -1,0 +1,95 @@
+html {
+    width: 400px;
+}
+body {
+    margin: 0;
+}
+#head {
+    height: 60px;
+    padding: 8px 4px 0;
+    background-color: white;
+    color: #25ABD9;
+}
+#head #count {
+    float: right;
+    margin-right: 5px;
+}
+#head img {
+    float: left;
+}
+#head h1 {
+    margin: 0;
+    font-family: sans-serif;
+}
+#tabs {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    font-family: sans-serif;
+}
+#tabs li {
+    display: inline;
+    margin-left: 5px;
+    padding: 5px 8px;
+    background-color: white;
+    border: 1px solid #8CD8EA;
+    border-bottom: 0;
+    color: #8CD8EA;
+    cursor: pointer;
+}
+#tabs li.select {
+    position: relative;
+    top: 1px;
+    padding-top: 6px;
+    border: 1px solid #25ABD9;
+    border-bottom: 0;
+    color: #25ABD9;
+}
+#main {
+    margin-top: 5px;
+    padding: 12px 8px 8px;
+    border-top: 1px solid #25ABD9;
+}
+#achievements {
+    padding-right: 8px;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+#achievements div {
+    border: 1px solid #8CD8EA;
+    padding: 5px;
+    color: #8CD8EA;
+}
+#achievements div h3, #achievements div p {
+    margin: 0;
+}
+#achievements div h3 {
+    font-family: sans-serif;
+}
+#achievements div p {
+    font-family: serif;
+}
+#achievements div + div {
+    margin-top: 10px;
+}
+#achievements div.achieved {
+    border: 1px solid #71D375;
+    padding: 5px;
+    color: #71D375;
+}
+#stats {
+    display: none;
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    color: #25ABD9;
+}
+#stats li {
+    padding-left: 1em;
+    text-indent: -1em;
+}
+#stats li:before {
+    content: "\25CB";
+    padding-right: 5px;
+}
