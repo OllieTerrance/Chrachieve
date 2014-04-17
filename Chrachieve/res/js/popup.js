@@ -15,7 +15,7 @@ $(document).ready(function() {
                 .toggleClass("achieved", prop >= 1);
             if (ach.max) {
                 var prog = $("<div>").addClass("progress");
-                prog.append($("<div/>").css("width", "calc(" + (prop * 100) + "% - 16px)"));
+                prog.append($("<div/>").css("width", (prop * 100) + "%"));
                 block.append(prog);
             }
             $("#achievements").append(block);
