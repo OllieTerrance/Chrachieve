@@ -86,45 +86,59 @@ var achievements = {
         },
         max: 500000
     },
-    tabs_navigated_1: {
+    history_visited_1: {
         name: "Web stepper",
-        desc: "Load a page.",
+        desc: "Visit a page.",
         count: function(stats) {
-            return stats.tabs.navigated;
+            return stats.history.visited;
         },
         max: 1
     },
-    tabs_navigated_100: {
+    history_visited_100: {
         name: "Web walker",
-        desc: "Load 100 pages.",
+        desc: "Visit 100 pages.",
         count: function(stats) {
-            return stats.tabs.navigated;
+            return stats.history.visited;
         },
         max: 100
     },
-    tabs_navigated_2500: {
+    history_visited_2500: {
         name: "Web runner",
-        desc: "Load 2,500 pages.",
+        desc: "Visit 2,500 pages.",
         count: function(stats) {
-            return stats.tabs.navigated;
+            return stats.history.visited;
         },
         max: 2500
     },
-    tabs_navigated_100000: {
+    history_visited_100000: {
         name: "Web flier",
-        desc: "Load 100,000 pages.",
+        desc: "Visit 100,000 pages.",
         count: function(stats) {
-            return stats.tabs.navigated;
+            return stats.history.visited;
         },
         max: 100000
     },
-    tabs_navigated_1000000: {
+    history_visited_1000000: {
         name: "Web circumnavigator",
-        desc: "Load 1,000,000 pages.",
+        desc: "Visit 1,000,000 pages.",
         count: function(stats) {
-            return stats.tabs.navigated;
+            return stats.history.visited;
         },
         max: 1000000
+    },
+    history_deleted: {
+        name: "You saw nothing",
+        desc: "Delete something from your history.",
+        count: function(stats) {
+            return stats.history.deleted;
+        }
+    },
+    history_emptied: {
+        name: "You were never here",
+        desc: "Clear your entire history.",
+        count: function(stats) {
+            return stats.history.emptied;
+        }
     }
 };
 var defaults = {
@@ -132,8 +146,10 @@ var defaults = {
     stats: {
         tabs: {
             opened: 0,
-            closed: 0,
-            navigated: 0
+            closed: 0
+        },
+        history: {
+            visited: 0
         }
     }
 };

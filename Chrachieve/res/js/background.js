@@ -39,12 +39,16 @@ chrome.storage.local.get(function(store) {
         test(["tabs_closed_1", "tabs_closed_50", "tabs_closed_1000", "tabs_closed_20000", "tabs_closed_500000"]);
         save();
     });
-    chrome.tabs.onUpdated.addListener(function(id, change, tab) {
-        if (change.status === "loading") {
-            console.log("tabs.navigated: " + (++store.stats.tabs.navigated));
-            test(["tabs_navigated_1", "tabs_navigated_100", "tabs_navigated_2500", "tabs_navigated_100000", "tabs_navigated_1000000"]);
-            save();
-        }
+    chrome.history.onVisited.addListener(function(result) {
+        console.log("history.visited: " + (++store.stats.history.visited));
+        test(["history_visited_1", "history_visited_100", "history_visited_2500", "history_visited_100000", "history_visited_1000000"]);
+        save();
+    });
+    chrome.history.onVisitRemoved.addListener(function(removed) {
+        console.log("history.deleted: " + (store.stats.history.deleted = true));
+        if (removed.allHistory) console.log("history.emptied: " + (store.stats.history.emptied = true));
+        test(["history_deleted", "history_emptied"]);
+        save();
     });
     test(["first_run"]);
     save();

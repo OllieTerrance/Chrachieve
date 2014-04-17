@@ -31,7 +31,7 @@ $(document).ready(function() {
         });
         $("#stats").append("<li>Tabs opened: " + store.stats.tabs.opened + "</li>")
                    .append("<li>Tabs closed: " + store.stats.tabs.closed + "</li>")
-                   .append("<li>Pages loaded: " + store.stats.tabs.navigated + "</li>")
+                   .append("<li>Pages visited: " + store.stats.history.visited + "</li>")
                    .hide();
         var pending = false;
         $("#reset-btn").click(function(e) {
