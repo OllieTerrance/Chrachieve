@@ -51,8 +51,40 @@ chrome.storage.local.get(function(store) {
     });
     chrome.history.onVisitRemoved.addListener(function(removed) {
         console.log("history.deleted: " + (store.stats.history.deleted = true));
-        if (removed.allHistory) console.log("history.emptied: " + (store.stats.history.emptied = true));
-        test(["history_deleted", "history_emptied"]);
+        test(["history_deleted"]);
+        if (removed.allHistory) {
+            console.log("history.emptied: " + (store.stats.history.emptied = true));
+            test(["history_emptied"]);
+        }
+        save();
+    });
+    chrome.downloads.onChanged.addListener(function(delta) {
+        if (!delta.state) return;
+        if (delta.state.current === "complete") {
+            console.log("downloads.completed: " + (++store.stats.downloads.completed));
+            test(["downloads_completed_1", "downloads_completed_20", "downloads_completed_500", "downloads_completed_10000"]);
+            chrome.downloads.search({id: delta.id}, function(downloads) {
+                var mime = downloads[0].mime.split("/");
+                switch (mime[0]) {
+                    case "audio":
+                        console.log("downloads.audio: " + (++store.stats.downloads.audio));
+                        test(["downloads_audio_1", "downloads_audio_10", "downloads_audio_100"]);
+                        break;
+                    case "image":
+                        console.log("downloads.images: " + (++store.stats.downloads.images));
+                        test(["downloads_images_1", "downloads_images_20", "downloads_images_250"]);
+                        break;
+                    case "video":
+                        console.log("downloads.videos: " + (++store.stats.downloads.videos));
+                        test(["downloads_videos_1", "downloads_videos_10", "downloads_videos_50"]);
+                        break;
+                }
+                save();
+            });
+        } else if (delta.state.current === "interrupted" && delta.error.current === "USER_CANCELED") {
+            console.log("downloads.cancelled: " + (++store.stats.downloads.cancelled));
+            test(["downloads_cancelled_1", "downloads_cancelled_20", "downloads_cancelled_500"]);
+        }
         save();
     });
     test(["first_run"]);

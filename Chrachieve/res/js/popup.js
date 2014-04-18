@@ -50,6 +50,11 @@ $(document).ready(function() {
                        .append("<li>Tabs opened: " + store.stats.tabs.opened + "</li>")
                        .append("<li>Tabs closed: " + store.stats.tabs.closed + "</li>")
                        .append("<li>Pages visited: " + store.stats.history.visited + "</li>")
+                       .append("<li>Downloads completed: " + store.stats.downloads.completed + "</li>")
+                       .append($("<ul/>").append("<li>Audio: " + store.stats.downloads.audio + "</li>")
+                                         .append("<li>Images: " + store.stats.downloads.images + "</li>")
+                                         .append("<li>Videos: " + store.stats.downloads.videos + "</li>"))
+                       .append("<li>Downloads cancelled: " + store.stats.downloads.cancelled + "</li>");
         }
         writeStats();
         // prefill options

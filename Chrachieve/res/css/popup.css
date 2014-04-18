@@ -212,7 +212,12 @@ button:active {
     padding-left: 0;
     list-style: none;
 }
-#stats li {
+#stats ul {
+    margin: 0;
+    padding-left: 1em;
+    list-style: none;
+}
+#stats > li {
     padding-left: 1em;
     text-indent: -1em;
 }

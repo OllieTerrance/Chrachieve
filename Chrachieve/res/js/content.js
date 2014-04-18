@@ -139,6 +139,134 @@ var achievements = {
         count: function(stats) {
             return stats.history.emptied;
         }
+    },
+    downloads_completed_1: {
+        name: "File acquirer",
+        desc: "Download a file.",
+        count: function(stats) {
+            return stats.downloads.completed;
+        },
+        max: 1
+    },
+    downloads_completed_20: {
+        name: "File organizer",
+        desc: "Download 10 files.",
+        count: function(stats) {
+            return stats.downloads.completed;
+        },
+        max: 20
+    },
+    downloads_completed_500: {
+        name: "File collector",
+        desc: "Download 200 files.",
+        count: function(stats) {
+            return stats.downloads.completed;
+        },
+        max: 500
+    },
+    downloads_completed_10000: {
+        name: "File obsessor",
+        desc: "Download 1,000 files.",
+        count: function(stats) {
+            return stats.downloads.completed;
+        },
+        max: 10000
+    },
+    downloads_audio_1: {
+        name: "Audio newbie",
+        desc: "Download an audio file.",
+        count: function(stats) {
+            return stats.downloads.audio;
+        },
+        max: 1
+    },
+    downloads_audio_10: {
+        name: "Audio hobbyist",
+        desc: "Download 10 audio files.",
+        count: function(stats) {
+            return stats.downloads.audio;
+        },
+        max: 10
+    },
+    downloads_audio_100: {
+        name: "Audiophile",
+        desc: "Download 100 audio files.",
+        count: function(stats) {
+            return stats.downloads.audio;
+        },
+        max: 100
+    },
+    downloads_images_1: {
+        name: "Image liker",
+        desc: "Download an image.",
+        count: function(stats) {
+            return stats.downloads.images;
+        },
+        max: 1
+    },
+    downloads_images_20: {
+        name: "Image keeper",
+        desc: "Download 20 images.",
+        count: function(stats) {
+            return stats.downloads.images;
+        },
+        max: 20
+    },
+    downloads_images_250: {
+        name: "Image cataloguer",
+        desc: "Download 250 images.",
+        count: function(stats) {
+            return stats.downloads.images;
+        },
+        max: 250
+    },
+    downloads_videos_1: {
+        name: "Video watcher",
+        desc: "Download a video.",
+        count: function(stats) {
+            return stats.downloads.videos;
+        },
+        max: 1
+    },
+    downloads_videos_10: {
+        name: "Video capturer",
+        desc: "Download 10 videos.",
+        count: function(stats) {
+            return stats.downloads.videos;
+        },
+        max: 10
+    },
+    downloads_videos_50: {
+        name: "Video recorder",
+        desc: "Download 100 videos.",
+        count: function(stats) {
+            return stats.downloads.videos;
+        },
+        max: 50
+    },
+    downloads_cancelled_1: {
+        name: "File canceller",
+        desc: "Cancel a file download.",
+        count: function(stats) {
+            return stats.downloads.cancelled;
+        },
+        max: 1
+    },
+    downloads_cancelled_20: {
+        name: "File aborter",
+        desc: "Cancel 20 file downloads.",
+        count: function(stats) {
+            return stats.downloads.cancelled;
+        },
+        max: 20
+    },
+    downloads_cancelled_500: {
+        name: "File abandoner",
+        desc: "Cancel 500 file downloads.",
+        count: function(stats) {
+            return stats.downloads.cancelled;
+        },
+        max: 500
     }
 };
 var defaults = {
@@ -150,6 +278,13 @@ var defaults = {
         },
         history: {
             visited: 0
+        },
+        downloads: {
+            completed: 0,
+            cancelled: 0,
+            audio: 0,
+            images: 0,
+            videos: 0
         }
     },
     options: {
