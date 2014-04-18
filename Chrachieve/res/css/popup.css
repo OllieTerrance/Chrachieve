@@ -9,11 +9,10 @@ html {
 body {
     margin: 0;
     color: #25ABD9;
-    font-family: serif;
     -webkit-user-select: none;
 }
-h1, h3 {
-    font-family: sans-serif;
+* {
+    font-family: "Source Sans Pro", sans-serif;
 }
 hr {
     margin: 18px 0 12px;
@@ -27,7 +26,7 @@ label span {
     vertical-align: top;
 }
 input[type="checkbox"], input[type="radio"] {
-    margin: 3px 0 0 5px;
+    margin: 4px 0 0 5px;
 }
 .red {
     color: #E04D2B;
@@ -41,7 +40,6 @@ button {
     border: 1px solid #64C9EC;
     color: #64C9EC;
     cursor: pointer;
-    font-family: sans-serif;
 }
 button:hover {
     background-color: #64C9EC;
@@ -108,14 +106,13 @@ button:active {
     float: left;
 }
 #head h1 {
-    margin: 0;
+    margin: 2px 0 0;
 }
 #tabs {
     margin: 0;
     padding: 0;
     list-style: none;
     text-align: center;
-    font-family: sans-serif;
 }
 #tabs li {
     display: inline;
@@ -156,7 +153,7 @@ button:active {
 #achievements div span {
     float: right;
     margin-top: 3px;
-    font-size: 0.8em;
+    font-size: 0.9em;
 }
 #achievements div h3 {
     margin: 0;
@@ -214,16 +211,12 @@ button:active {
 }
 #stats ul {
     margin: 0;
-    padding-left: 1em;
+    padding-left: 15px;
     list-style: none;
 }
-#stats > li {
-    padding-left: 1em;
-    text-indent: -1em;
-}
 #stats li:before {
-    content: "\25CB";
-    padding-right: 5px;
+    content: "\2022";
+    padding-right: 8px;
 }
 #options {
     text-align: center;
