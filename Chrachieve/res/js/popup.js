@@ -70,6 +70,7 @@ $(document).ready(function() {
         if (store.options.progress_bars) $("#progress-bars").prop("checked", true);
         if (store.options.notifications) $("#notifications").prop("checked", true);
         if (store.options.sounds) $("#sounds").prop("checked", true);
+        if (store.options.dark_theme) $("#dark-theme").prop("checked", true);
         // save settings
         $("#save").click(function(e) {
             if ($("#default-tab-achievements").prop("checked")) store.options.default_tab = 0;
@@ -78,6 +79,8 @@ $(document).ready(function() {
             store.options.progress_bars = $("#progress-bars").prop("checked");
             store.options.notifications = $("#notifications").prop("checked");
             store.options.sounds = $("#sounds").prop("checked");
+            store.options.dark_theme = $("#dark-theme").prop("checked");
+            $(document.body).toggleClass("dark", store.options.dark_theme);
             var btn = $(this);
             btn.text("Saving...");
             chrome.storage.local.set({options: store.options}, function() {
@@ -118,5 +121,7 @@ $(document).ready(function() {
         });
         // default tab
         $($("#tabs li")[store.options.default_tab]).click();
+        // dark theme
+        $(document.body).toggleClass("dark", store.options.dark_theme);
     });
 });

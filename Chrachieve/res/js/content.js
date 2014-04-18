@@ -12,7 +12,6 @@ var achievements = {
         count: function(stats) {
             return stats.tabs.opened;
         },
-        max: 1
     },
     tabs_opened_50: {
         name: "Tab regular",
@@ -52,7 +51,6 @@ var achievements = {
         count: function(stats) {
             return stats.tabs.closed;
         },
-        max: 1
     },
     tabs_closed_50: {
         name: "Tab accomplisher",
@@ -92,7 +90,6 @@ var achievements = {
         count: function(stats) {
             return stats.history.visited;
         },
-        max: 1
     },
     history_visited_100: {
         name: "Web walker",
@@ -146,7 +143,6 @@ var achievements = {
         count: function(stats) {
             return stats.downloads.completed;
         },
-        max: 1
     },
     downloads_completed_20: {
         name: "File organizer",
@@ -178,7 +174,6 @@ var achievements = {
         count: function(stats) {
             return stats.downloads.audio;
         },
-        max: 1
     },
     downloads_audio_10: {
         name: "Audio hobbyist",
@@ -202,7 +197,6 @@ var achievements = {
         count: function(stats) {
             return stats.downloads.images;
         },
-        max: 1
     },
     downloads_images_20: {
         name: "Image keeper",
@@ -226,7 +220,6 @@ var achievements = {
         count: function(stats) {
             return stats.downloads.videos;
         },
-        max: 1
     },
     downloads_videos_10: {
         name: "Video capturer",
@@ -250,7 +243,6 @@ var achievements = {
         count: function(stats) {
             return stats.downloads.cancelled;
         },
-        max: 1
     },
     downloads_cancelled_20: {
         name: "File aborter",
@@ -292,7 +284,8 @@ var defaults = {
         hide_completed: false,
         progress_bars: true,
         notifications: true,
-        sounds: false
+        sounds: false,
+        dark_theme: false
     }
 };
 $.each(achievements, function(id, ach) {

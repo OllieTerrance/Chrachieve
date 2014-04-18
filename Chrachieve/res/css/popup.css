@@ -11,6 +11,9 @@ body {
     color: #25ABD9;
     -webkit-user-select: none;
 }
+body.dark {
+    background-color: #202020;
+}
 * {
     font-family: "Source Sans Pro", sans-serif;
 }
@@ -41,24 +44,27 @@ button {
     color: #64C9EC;
     cursor: pointer;
 }
-button:hover {
+button:hover, body.dark button:hover {
     background-color: #64C9EC;
     color: #FFFFFF;
 }
-button:active {
+button:active, body.dark button:active {
     background-color: #25ABD9;
     border: 1px solid #25ABD9;
     color: #FFFFFF;
+}
+body.dark button {
+    background-color: #202020;
 }
 .red button {
     border: 1px solid #EC9682;
     color: #EC9682;
 }
-.red button:hover {
+.red button:hover, body.dark .red button:hover {
     background-color: #EC9682;
     color: #FFFFFF;
 }
-.red button:active {
+.red button:active, body.dark .red button:active {
     background-color: #E04D2B;
     border: 1px solid #E04D2B;
     color: #FFFFFF;
@@ -67,22 +73,25 @@ button:active {
     border: 1px solid #8AEA8D;
     color: #8AEA8D;
 }
-.green button:hover {
+.green button:hover, body.dark .green button:hover {
     background-color: #8AEA8D;
     color: #FFFFFF;
 }
-.green button:active {
+.green button:active, body.dark .green button:active {
     background-color: #71D375;
     border: 1px solid #71D375;
     color: #FFFFFF;
 }
+body.dark button:hover, body.dark button:active,
+body.dark .red button:hover, body.dark .red button:active,
+body.dark .green button:hover, body.dark .green button:active {
+    color: #202020;
+}
 ::-webkit-scrollbar {
     height: 12px;
     width: 12px;
-    background-color: #FFFFFF;
 }
 ::-webkit-scrollbar-thumb {
-    background-color: #FFFFFF;
     border: 1px solid #64C9EC;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -95,7 +104,6 @@ button:active {
 #head {
     height: 60px;
     padding: 8px 4px 0;
-    background-color: #FFFFFF;
 }
 #head #count {
     float: right;
@@ -123,6 +131,9 @@ button:active {
     border-bottom: 0;
     color: #64C9EC;
     cursor: pointer;
+}
+body.dark #tabs li {
+    background-color: #202020;
 }
 #tabs li.select {
     position: relative;
