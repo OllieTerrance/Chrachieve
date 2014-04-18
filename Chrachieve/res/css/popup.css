@@ -1,3 +1,8 @@
+/*
+Blue: #25ABD9 (#8CD8EA)
+Red: #E04D2B (#EC9682)
+Green: #71D375 (#8AEA8D)
+*/
 html {
     width: 400px;
 }
@@ -7,9 +12,32 @@ body {
     font-family: serif;
     -webkit-user-select: none;
 }
+h1, h3 {
+    font-family: sans-serif;
+}
+hr {
+    margin: 18px 0 12px;
+    border: 0;
+    border-bottom: 1px dashed #25ABD9;
+}
+label {
+    white-space: nowrap;
+}
+label span {
+    vertical-align: top;
+}
+input[type="checkbox"], input[type="radio"] {
+    margin: 3px 0 0 5px;
+}
+.red {
+    color: #E04D2B;
+}
+.green {
+    color: #71D375;
+}
 button {
     padding: 5px 8px;
-    background-color: white;
+    background-color: #FFFFFF;
     border: 1px solid #8CD8EA;
     color: #8CD8EA;
     cursor: pointer;
@@ -17,20 +45,46 @@ button {
 }
 button:hover {
     background-color: #8CD8EA;
-    color: white;
+    color: #FFFFFF;
 }
 button:active {
     background-color: #25ABD9;
     border: 1px solid #25ABD9;
-    color: white;
+    color: #FFFFFF;
+}
+.red button {
+    border: 1px solid #EC9682;
+    color: #EC9682;
+}
+.red button:hover {
+    background-color: #EC9682;
+    color: #FFFFFF;
+}
+.red button:active {
+    background-color: #E04D2B;
+    border: 1px solid #E04D2B;
+    color: #FFFFFF;
+}
+.green button {
+    border: 1px solid #8AEA8D;
+    color: #8AEA8D;
+}
+.green button:hover {
+    background-color: #8AEA8D;
+    color: #FFFFFF;
+}
+.green button:active {
+    background-color: #71D375;
+    border: 1px solid #71D375;
+    color: #FFFFFF;
 }
 ::-webkit-scrollbar {
     height: 12px;
     width: 12px;
-    background-color: white;
+    background-color: #FFFFFF;
 }
 ::-webkit-scrollbar-thumb {
-    background-color: white;
+    background-color: #FFFFFF;
     border: 1px solid #8CD8EA;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -43,7 +97,7 @@ button:active {
 #head {
     height: 60px;
     padding: 8px 4px 0;
-    background-color: white;
+    background-color: #FFFFFF;
 }
 #head #count {
     float: right;
@@ -55,7 +109,6 @@ button:active {
 }
 #head h1 {
     margin: 0;
-    font-family: sans-serif;
 }
 #tabs {
     margin: 0;
@@ -68,7 +121,7 @@ button:active {
     display: inline;
     margin-left: 5px;
     padding: 5px 8px;
-    background-color: white;
+    background-color: #FFFFFF;
     border: 1px solid #8CD8EA;
     border-bottom: 0;
     color: #8CD8EA;
@@ -81,6 +134,9 @@ button:active {
     border: 1px solid #25ABD9;
     border-bottom: 0;
     color: #25ABD9;
+}
+.tab {
+    display: none;
 }
 #main {
     margin-top: 5px;
@@ -104,11 +160,9 @@ button:active {
 }
 #achievements div h3 {
     margin: 0;
-    font-family: sans-serif;
 }
 #achievements div p {
     margin: 0 0 2px;
-    font-family: serif;
 }
 #achievements div div.progress {
     margin: 5px 0;
@@ -133,9 +187,6 @@ button:active {
 #achievements div.achieved div.progress div {
     background-color: #71D375;
 }
-#stats, #reset {
-    display: none;
-}
 #stats {
     margin: 0;
     padding-left: 0;
@@ -149,11 +200,17 @@ button:active {
     content: "\25CB";
     padding-right: 5px;
 }
-#reset p {
+#options {
+    text-align: center;
+}
+#options div + div {
+    margin-top: 10px;
+}
+#options h3, #options p {
     margin: 0 0 5px;
     text-align: center;
 }
-#reset button {
+#options button {
     display: block;
-    margin: 10px auto 5px;
+    margin: 8px auto 5px;
 }

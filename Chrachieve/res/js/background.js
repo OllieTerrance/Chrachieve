@@ -19,13 +19,18 @@ chrome.storage.local.get(function(store) {
             var ach = achievements[id];
             if (!store.achievements[id] && ach.count(store.stats) >= (ach.max ? ach.max : 1)) {
                 store.achievements[id] = true;
-                chrome.notifications.create("", {
-                    type: "basic",
-                    iconUrl: "/res/img/logo-128.png",
-                    title: "Achievement unlocked!",
-                    message: ach.name,
-                    contextMessage: ach.desc
-                }, function(id) {});
+                if (store.options.notifications) {
+                    chrome.notifications.create("", {
+                        type: "basic",
+                        iconUrl: "/res/img/logo-128.png",
+                        title: "Achievement unlocked!",
+                        message: ach.name,
+                        contextMessage: ach.desc
+                    }, function(id) {});
+                }
+                if (store.options.sounds) {
+                    new Audio("/res/mp3/achieve.mp3").play();
+                }
             }
         })
     }

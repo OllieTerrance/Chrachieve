@@ -151,6 +151,13 @@ var defaults = {
         history: {
             visited: 0
         }
+    },
+    options: {
+        default_tab: 0,
+        hide_completed: false,
+        progress_bars: true,
+        notifications: true,
+        sounds: false
     }
 };
 $.each(achievements, function(id, ach) {
