@@ -15,9 +15,11 @@ chrome.storage.local.get(function(store) {
         });
     });
     function test(ids) {
+        var change = false;
         $.each(ids, function(i, id) {
             var ach = achievements[id];
             if (!store.achievements[id] && ach.count(store.stats) >= (ach.max ? ach.max : 1)) {
+                change = true;
                 store.achievements[id] = true;
                 if (store.options.notifications) {
                     chrome.notifications.create("", {
@@ -32,22 +34,31 @@ chrome.storage.local.get(function(store) {
                     new Audio("/res/mp3/achieve.mp3").play();
                 }
             }
-        })
+        });
+        if (change) {
+            tip();
+            save();
+        }
+    }
+    function tip() {
+        var unlocked = 0, total = 0;
+        $.each(store.achievements, function(i, ach) {
+            total++;
+            if (ach) unlocked++;
+        });
+        chrome.browserAction.setTitle({title: chrome.runtime.getManifest().name + "\n" + unlocked + " of " + total + " achieved"});
     }
     chrome.tabs.onCreated.addListener(function(tab) {
         console.log("tabs.opened: " + (++store.stats.tabs.opened));
         test(["tabs_opened_1", "tabs_opened_50", "tabs_opened_1000", "tabs_opened_20000", "tabs_opened_500000"]);
-        save();
     });
     chrome.tabs.onRemoved.addListener(function(tab) {
         console.log("tabs.closed: " + (++store.stats.tabs.closed));
         test(["tabs_closed_1", "tabs_closed_50", "tabs_closed_1000", "tabs_closed_20000", "tabs_closed_500000"]);
-        save();
     });
     chrome.history.onVisited.addListener(function(result) {
         console.log("history.visited: " + (++store.stats.history.visited));
         test(["history_visited_1", "history_visited_100", "history_visited_2500", "history_visited_100000", "history_visited_1000000"]);
-        save();
     });
     chrome.history.onVisitRemoved.addListener(function(removed) {
         console.log("history.deleted: " + (store.stats.history.deleted = true));
@@ -56,7 +67,6 @@ chrome.storage.local.get(function(store) {
             console.log("history.emptied: " + (store.stats.history.emptied = true));
             test(["history_emptied"]);
         }
-        save();
     });
     chrome.downloads.onChanged.addListener(function(delta) {
         if (!delta.state) return;
@@ -79,14 +89,12 @@ chrome.storage.local.get(function(store) {
                         test(["downloads_videos_1", "downloads_videos_10", "downloads_videos_50"]);
                         break;
                 }
-                save();
             });
         } else if (delta.state.current === "interrupted" && delta.error.current === "USER_CANCELED") {
             console.log("downloads.cancelled: " + (++store.stats.downloads.cancelled));
             test(["downloads_cancelled_1", "downloads_cancelled_20", "downloads_cancelled_500"]);
         }
-        save();
     });
     test(["first_run"]);
-    save();
+    tip();
 });

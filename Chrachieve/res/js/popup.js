@@ -123,5 +123,11 @@ $(document).ready(function() {
         $($("#tabs li")[store.options.default_tab]).click();
         // dark theme
         $(document.body).toggleClass("dark", store.options.dark_theme);
+        // loading complete
+        setTimeout(function() {
+            $("#loading").fadeOut(250, function() {
+                $("#loaded").fadeIn(250);
+            });
+        }, 250);
     });
 });

@@ -23,13 +23,14 @@ hr {
     border-bottom: 1px dashed #25ABD9;
 }
 label {
+    margin: 0 4px;
     white-space: nowrap;
 }
 label span {
     vertical-align: top;
 }
 input[type="checkbox"], input[type="radio"] {
-    margin: 4px 0 0 5px;
+    margin: 4px 0 0 0;
 }
 .red {
     color: #E04D2B;
@@ -101,6 +102,18 @@ body.dark .green button:hover, body.dark .green button:active {
     background-color: #25ABD9;
     border: 1px solid #25ABD9;
 }
+#loading {
+    text-align: center;
+}
+#loading img {
+    margin-top: 20px;
+}
+#loading h1 {
+    margin-top: 0;
+}
+#loaded {
+    display: none;
+}
 #head {
     height: 60px;
     padding: 8px 4px 0;
@@ -153,7 +166,7 @@ body.dark #tabs li {
 }
 #achievements {
     padding-right: 8px;
-    max-height: 400px;
+    max-height: 425px;
     overflow-y: scroll;
 }
 #achievements > div {

@@ -5,66 +5,72 @@
         <link rel="stylesheet" href="../css/popup.css">
     </head>
     <body>
-        <div id="head">
-            <span id="count"></span>
-            <img src="../img/logo-48.png"/>
+        <div id="loading">
+            <img src="../img/logo-128.png"/>
             <h1></h1>
         </div>
-        <ul id="tabs">
-            <li data-tab="#achievements">Achievements</li>
-            <li data-tab="#stats">Stats</li>
-            <li data-tab="#options">Options</li>
-        </ul>
-        <div id="main">
-            <div id="achievements" class="tab"></div>
-            <ul id="stats" class="tab"></ul>
-            <div id="options" class="tab">
-                <div>
-                    <h3>Default tab</h3>
-                    <label>
-                        <input id="default-tab-achievements" name="default-tab" type="radio">
-                        <span>Achievements</span>
-                    </label>
-                    <label>
-                        <input id="default-tab-stats" name="default-tab" type="radio">
-                        <span>Stats</span>
-                    </label>
-                </div>
-                <div>
-                    <h3>Achievements</h3>
-                    <label>
-                        <input id="hide-completed" type="checkbox">
-                        <span>Hide completed</span>
-                    </label>
-                    <label>
-                        <input id="progress-bars" type="checkbox">
-                        <span>Progress bars</span>
-                    </label>
-                    <br/>
-                    <label>
-                        <input id="notifications" type="checkbox">
-                        <span>Notifications</span>
-                    </label>
-                    <label>
-                        <input id="sounds" type="checkbox">
-                        <span>Sounds</span>
-                    </label>
-                </div>
-                <div>
-                    <h3>Miscellaneous</h3>
-                    <label>
-                        <input id="dark-theme" type="checkbox">
-                        <span>Dark theme</span>
-                    </label>
-                </div>
-                <div>
-                    <button id="save">Save options?</button>
-                </div>
-                <hr/>
-                <div class="red">
-                    <h3>Reset</h3>
-                    <p id="reset-text">Do you want to reset all statistics and achievements?  There's no undo, really, there isn't!  Are you sure?</p>
-                    <button id="reset">I'm sure, reset everything...</button>
+        <div id="loaded">
+            <div id="head">
+                <span id="count"></span>
+                <img src="../img/logo-48.png"/>
+                <h1></h1>
+            </div>
+            <ul id="tabs">
+                <li data-tab="#achievements">Achievements</li>
+                <li data-tab="#stats">Stats</li>
+                <li data-tab="#options">Options</li>
+            </ul>
+            <div id="main">
+                <div id="achievements" class="tab"></div>
+                <ul id="stats" class="tab"></ul>
+                <div id="options" class="tab">
+                    <div>
+                        <h3>Default tab</h3>
+                        <label>
+                            <input id="default-tab-achievements" name="default-tab" type="radio">
+                            <span>Achievements</span>
+                        </label>
+                        <label>
+                            <input id="default-tab-stats" name="default-tab" type="radio">
+                            <span>Stats</span>
+                        </label>
+                    </div>
+                    <div>
+                        <h3>Achievements</h3>
+                        <label>
+                            <input id="hide-completed" type="checkbox">
+                            <span>Hide completed</span>
+                        </label>
+                        <label>
+                            <input id="progress-bars" type="checkbox">
+                            <span>Progress bars</span>
+                        </label>
+                        <br/>
+                        <label>
+                            <input id="notifications" type="checkbox">
+                            <span>Notifications</span>
+                        </label>
+                        <label>
+                            <input id="sounds" type="checkbox">
+                            <span>Sounds</span>
+                        </label>
+                    </div>
+                    <div>
+                        <h3>Miscellaneous</h3>
+                        <label>
+                            <input id="dark-theme" type="checkbox">
+                            <span>Dark theme</span>
+                        </label>
+                    </div>
+                    <div>
+                        <button id="save">Save options?</button>
+                    </div>
+                    <hr/>
+                    <div class="red">
+                        <h3>Reset</h3>
+                        <p id="reset-text">Do you want to reset all statistics and achievements?  There's no undo, really, there isn't!  Are you sure?</p>
+                        <button id="reset">I'm sure, reset everything...</button>
+                    </div>
                 </div>
             </div>
         </div>
